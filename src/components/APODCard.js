@@ -1,26 +1,27 @@
 import React from 'react';
 import {
-  Card, CardImg, CardText, CardBody, CardLink,
+  Card, CardImg, CardText, CardBody, CardFooter,
   CardTitle, CardSubtitle
 } from 'reactstrap';
 
-const Example = (props) => {
+const APODCard = (props) => {
+    console.log(props);
   return (
-    <div>
+    <div className="APOD-card">
       <Card>
+       
+        <CardTitle>Title: {props.apod.title}</CardTitle>
+        <CardSubtitle>Date: {props.apod.date}</CardSubtitle>
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
+        <CardImg width="100%" src={props.apod.hdurl} alt="Nasa APOD" />
         </CardBody>
-        <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-        <CardBody>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <CardLink href="#">Card Link</CardLink>
-          <CardLink href="#">Another Link</CardLink>
-        </CardBody>
+        <CardText>Explanation: {props.apod.explanation}</CardText>
+        <CardFooter> {props.apod.copyright}</CardFooter>
+        
+       
       </Card>
     </div>
   );
 };
 
-export default Example;
+export default APODCard;
